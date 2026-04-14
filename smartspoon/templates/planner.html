@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartSpoon Meal Planner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="main-wrapper">
+    <div class="hero-box">
+        <h1>📅 Smart Weekly Meal Planner</h1>
+        <p class="subtitle">Get your weekly meal plan based on your health goal</p>
+
+        <div class="controls">
+            <select id="goal">
+                <option value="balanced">Balanced Diet</option>
+                <option value="weightloss">Weight Loss</option>
+                <option value="gym">Gym Diet</option>
+                <option value="diabetic">Diabetic Friendly</option>
+            </select>
+
+            <button onclick="generateMealPlan()">✨ Generate My Plan</button>
+        </div>
+
+        <div id="mealPlan" class="planner-grid"></div>
+
+        <a href="/" class="plan-btn">⬅ Back to Home</a>
+    </div>
+</div>
+
+<script>
+function generateMealPlan() {
+    const goal = document.getElementById("goal").value;
+
+    const plans = {
+        balanced: [
+            "🌞 Monday: Poha + Fruits",
+            "🌮 Tuesday: Roti + Dal",
+            "🥗 Wednesday: Rice Bowl + Salad",
+            "🍲 Thursday: Soup + Sandwich",
+            "🍚 Friday: Khichdi + Curd",
+            "🥪 Saturday: Paneer Wrap",
+            "🍕 Sunday: Family Special"
+        ],
+        weightloss: [
+            "🌞 Monday: Oats + Apple",
+            "🌮 Tuesday: Salad Bowl",
+            "🥗 Wednesday: Soup + Toast",
+            "🍲 Thursday: Sprouts",
+            "🍚 Friday: Brown Rice + Veggies",
+            "🥪 Saturday: Smoothie",
+            "🍉 Sunday: Light Meal"
+        ],
+        gym: [
+            "🌞 Monday: Oats + Banana",
+            "🌮 Tuesday: Paneer Wrap",
+            "🥗 Wednesday: Rice + Dal",
+            "🍲 Thursday: Protein Smoothie",
+            "🍚 Friday: Dry Fruits + Eggs",
+            "🥪 Saturday: Pasta",
+            "🍗 Sunday: High Protein Meal"
+        ],
+        diabetic: [
+            "🌞 Monday: Besan Chilla",
+            "🌮 Tuesday: Brown Rice",
+            "🥗 Wednesday: Vegetable Soup",
+            "🍲 Thursday: Nuts + Salad",
+            "🍚 Friday: Daliya",
+            "🥪 Saturday: Multigrain Toast",
+            "🍉 Sunday: Fruit Bowl"
+        ]
+    };
+
+    const mealPlan = document.getElementById("mealPlan");
+    mealPlan.innerHTML = "";
+
+    plans[goal].forEach(day => {
+        mealPlan.innerHTML += `<div class="card">${day}</div>`;
+    });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartSpoon AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="main-wrapper">
+    <div class="hero-box">
+        <h1>🍽 SmartSpoon AI</h1>
+        <p class="subtitle">Cook smart • Waste less • Stay healthy</p>
+
+        <div class="controls">
+            <input type="text" id="ingredients" placeholder="Enter ingredients like tomato, onion, paneer">
+
+            <select id="healthMode">
+                <option value="">Normal Mode</option>
+                <option value="diabetic">Diabetic</option>
+                <option value="lactose">Lactose Intolerant</option>
+                <option value="weightloss">Weight Loss</option>
+                <option value="gym">Gym Diet</option>
+                <option value="vegetarian">Vegetarian</option>
+            </select>
+
+            <select id="mode">
+                <option value="normal">Normal Recipe</option>
+                <option value="leftover">♻️ Leftover Rescue</option>
+            </select>
+        </div>
+
+        <div class="button-group">
+            <button onclick="startVoiceInput()">🎤 Voice Input</button>
+            <button onclick="generateRecipe()">✨ Generate Recipe</button>
+            <a href="/planner" class="plan-btn">📅 Meal Planner</a>
+        </div>
+    </div>
+
+    <div id="results"></div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
